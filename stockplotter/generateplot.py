@@ -1,5 +1,5 @@
 from bokeh.plotting import figure
-from bokeh.charts import TimeSeries
+from bokeh._legacy_charts import TimeSeries
 from bokeh.embed import components
 import pandas as pd
 
