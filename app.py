@@ -17,7 +17,7 @@ def index():
   #Check the request
   if request.method=='GET':
     print "This is get GET"
-    return render_template('layout.html',bokeh_script="",bokeh_div="",note="",symbol="")
+    return render_template('layout.html',bokeh_script="",bokeh_div="",note="")
 
 
   else:
@@ -30,14 +30,14 @@ def index():
         #tweet = request.form['Tweet']
     except:
         note = "Oh no.May be i'am not in Database.?"
-        return render_template('layout.html',bokeh_script="",bokeh_div="",note=note,symbol=tweet)
+        return render_template('layout.html',bokeh_script="",bokeh_div="",note=note)
 
     # Bokeh Plot
     desired_columns = request.form.getlist('features')
     script,div,note = generateplot(data,desired_columns,request.form['stock'])
 
     # Render
-    return render_template('layout.html',bokeh_script=script,bokeh_div=div,note=note,symbol=tweet)
+    return render_template('layout.html',bokeh_script=script,bokeh_div=div,note=note)
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0',port=33507,debug=True)
