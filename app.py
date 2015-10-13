@@ -27,7 +27,7 @@ def index():
     try:
         # Request for API-call
         data = getstockdata(request.form['stock'])
-        tweet = request.form['Tweet']
+        #tweet = request.form['Tweet']
     except:
         note = "Oh no.May be i'am not in Database.?"
         return render_template('layout.html',bokeh_script="",bokeh_div="",note=note,symbol=tweet)
