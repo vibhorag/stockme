@@ -30,7 +30,7 @@ def index():
         request.form['stock']
     except:
         note = "Oh no.May be i'am not in Database.?"
-        return render_template('layout.html',bokeh_script="",bokeh_div="",note=note,symbol="")
+        return render_template('layout.html',bokeh_script="",bokeh_div="",note=note,symbol=request.form['stock'])
 
     # Bokeh Plot
     desired_columns = request.form.getlist('features')
