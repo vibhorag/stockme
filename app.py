@@ -27,17 +27,17 @@ def index():
     try:
         # Request for API-call
         data = getstockdata(request.form['stock'])
-        symbol = "GOOG"
+        tweet = request.form['Tweet']
     except:
         note = "Oh no.May be i'am not in Database.?"
-        return render_template('layout.html',bokeh_script="",bokeh_div="",note=note,symbol=symbol)
+        return render_template('layout.html',bokeh_script="",bokeh_div="",note=note,symbol=tweet)
 
     # Bokeh Plot
     desired_columns = request.form.getlist('features')
     script,div,note = generateplot(data,desired_columns,request.form['stock'])
 
     # Render
-    return render_template('layout.html',bokeh_script=script,bokeh_div=div,note=note,symbol=symbol)
+    return render_template('layout.html',bokeh_script=script,bokeh_div=div,note=note,symbol=tweet)
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0',port=33507,debug=True)
